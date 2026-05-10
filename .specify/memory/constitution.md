@@ -1,50 +1,33 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!-- Sync Impact Report: Version 1.0.0 (initial) - Added all principles and sections based on project context. Templates assumed aligned. -->
+# RSS Feed Reader Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Security-First Development
+All code must adhere to secure coding practices. Validate all user inputs to prevent injection attacks. Use HTTPS for any network communications. Implement proper error handling to avoid information leakage. Regularly review code for common vulnerabilities.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Maintainable Codebase
+Follow clean architecture principles with clear separation of concerns. Backend (ASP.NET Core Web API) handles data logic, frontend (Blazor WebAssembly) manages UI. Use dependency injection, keep methods focused and small, and document all public APIs and interfaces.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. High Code Quality
+Achieve high code quality through comprehensive testing. Write unit tests for all business logic with at least 80% code coverage. Follow C# coding standards, use async/await appropriately for asynchronous operations, and perform code reviews for all changes.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Cross-Platform Compatibility
+Ensure the application runs seamlessly on Windows, macOS, and Linux. Use cross-platform .NET libraries and avoid platform-specific dependencies. Test on all target platforms before releases.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Incremental Development
+Develop features incrementally: Start with MVP (subscription management), then Extended-MVP (feed fetching). Avoid over-engineering by implementing only features required for the current phase. Defer complex features until proven necessary.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Technology Stack Requirements
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+The application uses ASP.NET Core Web API for the backend and Blazor WebAssembly for the frontend. Backend manages subscription data and (in Extended-MVP) feed operations. Frontend provides the user interface for subscription management and display. Use C# throughout for consistency and code sharing. For Extended-MVP, integrate System.ServiceModel.Syndication for feed parsing and EF Core with SQLite for persistence if needed.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+Focus on rapid development of the MVP: Add subscriptions by URL and display the list. Store data in memory only for simplicity. No feed fetching, validation, or persistence initially. After MVP completion, add manual refresh and item display for Extended-MVP. Use simple UI without polish. All changes must pass code reviews and maintain test coverage.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes all other project practices and guidelines. Amendments require approval from all stakeholders, documentation of changes, and a migration plan for existing code. All pull requests must verify compliance with these principles. Complexity must be justified against project goals. Use this constitution for guidance on development decisions.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2026-05-03 | **Last Amended**: 2026-05-03
