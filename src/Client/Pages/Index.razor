@@ -1,0 +1,54 @@
+@page "/"
+@inject Client.Services.SubscriptionService SubscriptionService
+
+<h1>RSS Feed Reader (MVP)</h1>
+
+<div class="mb-3">
+    <input @bind="newSubscriptionUrl" placeholder="Paste feed URL" class="form-control" style="width:420px" />
+    <button class="btn btn-primary mt-2" @onclick="AddSubscription">Add</button>
+</div>
+
+@if (subscriptions is null)
+{
+    <p>Loading...</p>
+}
+else if (!subscriptions.Any())
+{
+    <div>No subscriptions yet.</div>
+}
+else
+{
+    <ul>
+        @foreach (var subscription in subscriptions)
+        {
+            <li>@subscription.Url (@subscription.AddedAt.ToLocalTime().ToString("g"))</li>
+        }
+    </ul>
+}
+
+@code {
+    private string newSubscriptionUrl = string.Empty;
+    private List<Client.Models.SubscriptionDto>? subscriptions;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadSubscriptions();
+    }
+
+    private async Task AddSubscription()
+    {
+        if (string.IsNullOrWhiteSpace(newSubscriptionUrl))
+        {
+            return;
+        }
+
+        await SubscriptionService.AddSubscriptionAsync(newSubscriptionUrl.Trim());
+        newSubscriptionUrl = string.Empty;
+        await LoadSubscriptions();
+    }
+
+    private async Task LoadSubscriptions()
+    {
+        subscriptions = (await SubscriptionService.GetSubscriptionsAsync()).ToList();
+    }
+}

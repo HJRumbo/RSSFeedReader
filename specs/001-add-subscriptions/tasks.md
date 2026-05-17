@@ -2,36 +2,36 @@
 
 ## Phase 1 — Setup
 
-- [ ] T001 Create solution and project skeleton: `src/Server/Server.csproj` and `src/Client/Client.csproj`
+ - [x] T001 Create solution and project skeleton: `src/Server/Server.csproj` and `src/Client/Client.csproj`
 - [ ] T002 Add repository-level README and feature entry in `README.md` pointing to `specs/001-add-subscriptions` 
 - [ ] T003 Add CI/dev script placeholders: `scripts/restore.ps1` and `scripts/run-dev.ps1`
 
 ## Phase 2 — Foundational
 
-- [ ] T004 [P] Implement `Subscription` model in `src/Server/Models/Subscription.cs`
-- [ ] T005 [P] Implement `SubscriptionDto` in `src/Client/Models/SubscriptionDto.cs`
-- [ ] T006 Implement in-memory subscription service `src/Server/Services/SubscriptionService.cs`
-- [ ] T007 [P] Add API controller scaffold `src/Server/Controllers/SubscriptionsController.cs` (GET/POST stubs)
+ - [x] T004 [P] Implement `Subscription` model in `src/Server/Models/Subscription.cs`
+ - [x] T005 [P] Implement `SubscriptionDto` in `src/Client/Models/SubscriptionDto.cs`
+ - [x] T006 Implement in-memory subscription service `src/Server/Services/SubscriptionService.cs`
+ - [x] T007 [P] Add API controller scaffold `src/Server/Controllers/SubscriptionsController.cs` (GET/POST stubs)
 - [ ] T008 Add backend unit test project and initial tests in `tests/Server.Tests/SubscriptionServiceTests.cs`
 
 ## Phase 3 — User Stories (priority order)
 
 ### User Story 1 - Add a feed subscription (Priority: P1)
 
-- [ ] T009 [US1] Implement `AddSubscriptionRequest` model in `src/Server/Models/AddSubscriptionRequest.cs`
-- [ ] T010 [US1] Implement POST `/api/subscriptions` in `src/Server/Controllers/SubscriptionsController.cs` (return `201 Created` and created `SubscriptionDto`)
-- [ ] T011 [US1] Implement client Add UI (input + Add button) in `src/Client/Pages/Index.razor`
-- [ ] T012 [US1] Implement client service method to call POST in `src/Client/Services/SubscriptionService.cs`
+ - [x] T009 [US1] Implement `AddSubscriptionRequest` model in `src/Server/Models/AddSubscriptionRequest.cs`
+ - [x] T010 [US1] Implement POST `/api/subscriptions` in `src/Server/Controllers/SubscriptionsController.cs` (return `201 Created` and created `SubscriptionDto`)
+- [x] T011 [US1] Implement client Add UI (input + Add button) in `src/Client/Pages/Index.razor`
+- [x] T012 [US1] Implement client service method to call POST in `src/Client/Services/SubscriptionService.cs`
 
 ### User Story 2 - View current subscriptions (Priority: P2)
 
-- [ ] T013 [US2] Implement GET `/api/subscriptions` in `src/Server/Controllers/SubscriptionsController.cs`
-- [ ] T014 [US2] Implement client subscription list rendering in `src/Client/Pages/Index.razor`
-- [ ] T015 [US2] Map API response to UI model in `src/Client/Services/SubscriptionService.cs`
+ - [x] T013 [US2] Implement GET `/api/subscriptions` in `src/Server/Controllers/SubscriptionsController.cs`
+- [x] T014 [US2] Implement client subscription list rendering in `src/Client/Pages/Index.razor`
+- [x] T015 [US2] Map API response to UI model in `src/Client/Services/SubscriptionService.cs`
 
 ### User Story 3 - View empty state (Priority: P3)
 
-- [ ] T016 [US3] Implement empty-state UI placeholder in `src/Client/Pages/Index.razor`
+- [x] T016 [US3] Implement empty-state UI placeholder in `src/Client/Pages/Index.razor`
 - [ ] T017 [US3] Add manual verification steps to `specs/001-add-subscriptions/quickstart.md` for empty-state and add-flow checks
 
 ## Final Phase — Polish & Cross-cutting
